@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980BF7614EF4D902A306BDB7 /* Pods_GeniusPlazaCodeChallegnge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5E8CE4546E6CB30811052D /* Pods_GeniusPlazaCodeChallegnge.framework */; };
 		F4CBC9E8225FFDD900C4053B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CBC9E7225FFDD900C4053B /* AppDelegate.swift */; };
 		F4CBC9EA225FFDD900C4053B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CBC9E9225FFDD900C4053B /* ViewController.swift */; };
 		F4CBC9ED225FFDD900C4053B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4CBC9EB225FFDD900C4053B /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A5E8CE4546E6CB30811052D /* Pods_GeniusPlazaCodeChallegnge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeniusPlazaCodeChallegnge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8127342163B936E02765AEA /* Pods-GeniusPlazaCodeChallegnge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeniusPlazaCodeChallegnge.debug.xcconfig"; path = "Target Support Files/Pods-GeniusPlazaCodeChallegnge/Pods-GeniusPlazaCodeChallegnge.debug.xcconfig"; sourceTree = "<group>"; };
 		F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallegnge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeniusPlazaCodeChallegnge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CBC9E7225FFDD900C4053B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4CBC9E9225FFDD900C4053B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		F4CBC9F3225FFDDA00C4053B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4CBC9FC225FFE9F00C4053B /* itunesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunesData.swift; sourceTree = "<group>"; };
 		F4CBC9FE2260006800C4053B /* itunesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunesTableViewCell.swift; sourceTree = "<group>"; };
+		F58858054120527CCD92CACA /* Pods-GeniusPlazaCodeChallegnge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeniusPlazaCodeChallegnge.release.xcconfig"; path = "Target Support Files/Pods-GeniusPlazaCodeChallegnge/Pods-GeniusPlazaCodeChallegnge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				980BF7614EF4D902A306BDB7 /* Pods_GeniusPlazaCodeChallegnge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70F28EBD1DD8AA2DFB7F7EE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8127342163B936E02765AEA /* Pods-GeniusPlazaCodeChallegnge.debug.xcconfig */,
+				F58858054120527CCD92CACA /* Pods-GeniusPlazaCodeChallegnge.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		99D47BBBA7684E2A8925AA41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A5E8CE4546E6CB30811052D /* Pods_GeniusPlazaCodeChallegnge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4CBC9DB225FFDD900C4053B = {
 			isa = PBXGroup;
 			children = (
 				F4CBC9E6225FFDD900C4053B /* GeniusPlazaCodeChallegnge */,
 				F4CBC9E5225FFDD900C4053B /* Products */,
+				70F28EBD1DD8AA2DFB7F7EE9 /* Pods */,
+				99D47BBBA7684E2A8925AA41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4CBC9F6225FFDDA00C4053B /* Build configuration list for PBXNativeTarget "GeniusPlazaCodeChallegnge" */;
 			buildPhases = (
+				9C9E450FF2A8034C3B18BC8D /* [CP] Check Pods Manifest.lock */,
 				F4CBC9E0225FFDD900C4053B /* Sources */,
 				F4CBC9E1225FFDD900C4053B /* Frameworks */,
 				F4CBC9E2225FFDD900C4053B /* Resources */,
+				9EFD3B681A210A2FEDECA7BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,6 +186,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C9E450FF2A8034C3B18BC8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeniusPlazaCodeChallegnge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EFD3B681A210A2FEDECA7BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeniusPlazaCodeChallegnge/Pods-GeniusPlazaCodeChallegnge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeniusPlazaCodeChallegnge/Pods-GeniusPlazaCodeChallegnge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4CBC9E0225FFDD900C4053B /* Sources */ = {
@@ -312,6 +390,7 @@
 		};
 		F4CBC9F7225FFDDA00C4053B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8127342163B936E02765AEA /* Pods-GeniusPlazaCodeChallegnge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -330,6 +409,7 @@
 		};
 		F4CBC9F8225FFDDA00C4053B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F58858054120527CCD92CACA /* Pods-GeniusPlazaCodeChallegnge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
