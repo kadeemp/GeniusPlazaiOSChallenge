@@ -35,8 +35,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itunesTableView.dequeueReusableCell(withIdentifier: "Cell") as! itunesTableViewCell
         cell.textLabel?.text = "Test"
-        cell.backgroundColor = UIColor.lightGray
+
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100 
     }
 
 
