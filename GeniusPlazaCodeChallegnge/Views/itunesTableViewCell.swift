@@ -16,7 +16,7 @@ class itunesTableViewCell: UITableViewCell {
     }()
 
     lazy var imageCover:UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: self.containerView.frame.midY, width: 70, height: 70))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: self.containerView.frame.midY, width: 85, height: 85))
         imageView.center = CGPoint(x: imageView.frame.width/2 + 10, y: self.containerView.frame.midY + 30)
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1

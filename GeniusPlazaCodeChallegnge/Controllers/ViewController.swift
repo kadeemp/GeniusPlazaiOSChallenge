@@ -12,18 +12,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var itunesTableView:UITableView!
     var itunesInfo:[itunesData] = []
+    var counter = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTableView()
-        NetworkingService.requestData { (data) in
-            self.itunesInfo = data
-            self.title = "Apple Music"
-            self.itunesTableView.reloadData()
-        }
+        rightBarButtonSetup()
 
+        NetworkingService.requestData(counter: counter) { (data) in
+            self.itunesInfo = data
+            self.itunesTableView.reloadData()
+            self.counter += 1
+            self.setTitle()
+        }
     }
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 
         if UIDevice.current.orientation.isLandscape {
@@ -43,6 +47,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+
+    func rightBarButtonSetup() {
+        let button = UIButton(type: .system)
+        button.tintColor = UIColor.black
+        button.setImage(UIImage(imageLiteralResourceName: "Arrow"), for: .normal)
+        button.addTarget(self, action: #selector(incrementMediaType), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+
     func setupTableView() {
         itunesTableView = UITableView()
         itunesTableView.autoresizesSubviews = true
@@ -52,6 +65,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         itunesTableView.dataSource = self
         itunesTableView.register(itunesTableViewCell.self, forCellReuseIdentifier: "Cell")
         self.view.addSubview(itunesTableView)
+    }
+
+    func setTitle() {
+
+        switch self.counter {
+        case 0:
+            self.title = "Apple Music"
+        case 1:
+            self.title = "Itunes Music"
+        case 2:
+            self.title = "iOS Apps"
+        case 3:
+            self.title = "Mac Apps"
+        case 4:
+            self.title = "Audiobooks"
+        case 5:
+            self.title = "Books"
+        case 6:
+            self.title = "TV Shows"
+        default:
+            self.title = ""
+        }
+    }
+
+    @objc func incrementMediaType() {
+        if counter == 6 {
+            counter = 0
+        }
+        setTitle()
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [.calculationModeCubic], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1, animations: {
+                self.itunesTableView.frame.origin = CGPoint(x: -self.itunesTableView.frame.width - 50, y: 0)
+                self.itunesTableView.layer.opacity = 0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.1, animations: {
+                self.itunesTableView.frame.origin = CGPoint(x: self.itunesTableView.frame.width + 50, y: 0)
+                NetworkingService.requestData(counter: self.counter) { (data) in
+                    self.itunesInfo = data
+                    self.itunesTableView.reloadData()
+                    self.counter += 1
+                }
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2, animations: {
+                self.itunesTableView.layer.opacity = 1
+                self.itunesTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
+
+            })
+        })
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itunesInfo.count
@@ -67,8 +128,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.imageCover.af_setImage(withURL: URL(string: data.image)!)
             })
         }
-
-
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,29 +135,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let newCell = cell as? itunesTableViewCell {
-            //                newCell.layer.opacity = 0
-
 
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 UIView.animate(withDuration: 3.2) {
                     newCell.imageCover.frame.size = CGSize(width: 100, height: 100)
                     newCell.containerView.frame.size = CGSize(width: self.itunesTableView.frame.width, height: newCell.frame.height - 5)
-                    newCell.imageCover.center = CGPoint(x: newCell.imageCover.frame.width/2 + 10, y: newCell.containerView.bounds.midY)
+//                    newCell.imageCover.center = CGPoint(x: newCell.imageCover.frame.width/2 + 10, y: newCell.containerView.frame.midY)
                     newCell.titleLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.minY + 5)
                     newCell.descriptionLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.maxY - newCell.descriptionLabel.frame.height - 5)
                 }
             } else {
                 UIView.animate(withDuration: 0.5) {
-                    newCell.imageCover.frame.size = CGSize(width: 70, height: 70)
+                    newCell.imageCover.frame.size = CGSize(width: 85, height: 85)
                     newCell.containerView.frame.size = CGSize(width: self.itunesTableView.frame.width - 20, height: newCell.frame.height - 5)
                     newCell.titleLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.minY + 5)
                     newCell.descriptionLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.maxY - newCell.descriptionLabel.frame.height - 5)
                 }
-            }
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 1, animations: {
-                    //                        newCell.layer.opacity = 1
-                })
             }
         }
     }

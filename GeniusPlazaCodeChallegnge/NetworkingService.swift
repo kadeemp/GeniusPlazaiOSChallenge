@@ -12,10 +12,11 @@ import SwiftyJSON
 
 class NetworkingService {
 
-    static func requestData(completion: @escaping ([itunesData]) -> ()) {
+    static func requestData(counter:Int,completion: @escaping ([itunesData]) -> ()) {
+        let links = MediaType.allLinks()
         var result:[itunesData] = []
-        let appleMsuicString = "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json"
-        let url = URL(string: appleMsuicString)
+
+        let url = URL(string: links[counter])
         Alamofire.request(url!).responseJSON { (response) in
             switch response.result {
             case .success :
