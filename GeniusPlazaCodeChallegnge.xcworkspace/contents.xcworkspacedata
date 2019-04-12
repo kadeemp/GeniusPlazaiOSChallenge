@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GeniusPlazaCodeChallegnge.xcodeproj">
+      location = "group:/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/GeniusPlazaCodeChallengge.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

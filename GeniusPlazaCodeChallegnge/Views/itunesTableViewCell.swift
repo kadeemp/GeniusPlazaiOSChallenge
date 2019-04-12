@@ -18,18 +18,18 @@ class itunesTableViewCell: UITableViewCell {
     lazy var imageCover:UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: self.containerView.frame.midY, width: 85, height: 85))
         imageView.center = CGPoint(x: imageView.frame.width/2 + 10, y: self.containerView.frame.midY + 30)
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = 1
+//        imageView.layer.borderColor = UIColor.black.cgColor
+//        imageView.layer.borderWidth = 1
         return imageView
     }()
 
     lazy var titleLabel:UILabel = {
-        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.minY + 5, width: 200, height: 20))
+        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.minY + 5, width: self.containerView.frame.width - self.imageCover.frame.width - 20, height: 20))
 
         return label
     }()
     lazy var descriptionLabel:UILabel = {
-        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.maxY - self.titleLabel.frame.height - 5, width: 200, height: 20))
+        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.maxY - self.titleLabel.frame.height - 5, width: self.containerView.frame.width - self.imageCover.frame.width - 20, height: 20))
     
         return label
     }()

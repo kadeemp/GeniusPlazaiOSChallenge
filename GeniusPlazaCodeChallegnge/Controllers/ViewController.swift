@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupTableView()
         rightBarButtonSetup()
 
@@ -32,16 +31,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         if UIDevice.current.orientation.isLandscape {
             UIView.animate(withDuration: 1) {
-
                 self.itunesTableView.frame = CGRect(x: 0, y: 0, width: size.width , height: size.height)
                 self.itunesTableView.reloadData()
-                self.itunesTableView.setNeedsLayout()
                 self.view.setNeedsLayout()
             }
         } else {
             UIView.animate(withDuration: 1) {
                 self.itunesTableView.frame = CGRect(x: 20, y: 0, width: size.width - 40, height: size.height)
-
                 self.itunesTableView.reloadData()
                 self.view.setNeedsLayout()
             }
@@ -93,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if counter == 6 {
             counter = 0
         }
-        setTitle()
+
         UIView.animateKeyframes(withDuration: 2, delay: 0, options: [.calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1, animations: {
                 self.itunesTableView.frame.origin = CGPoint(x: -self.itunesTableView.frame.width - 50, y: 0)
@@ -105,12 +101,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.itunesInfo = data
                     self.itunesTableView.reloadData()
                     self.counter += 1
+                    self.setTitle()
                 }
             })
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2, animations: {
                 self.itunesTableView.layer.opacity = 1
                 self.itunesTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
-
             })
         })
     }
@@ -124,7 +120,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.descriptionLabel.text = data.artist
         DispatchQueue.main.async {
             UIView.animate(withDuration: 2, animations: {
-
                 cell.imageCover.af_setImage(withURL: URL(string: data.image)!)
             })
         }
@@ -137,18 +132,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let newCell = cell as? itunesTableViewCell {
 
             if UIApplication.shared.statusBarOrientation.isLandscape {
-                UIView.animate(withDuration: 3.2) {
+                UIView.animate(withDuration:1) {
                     newCell.imageCover.frame.size = CGSize(width: 100, height: 100)
                     newCell.containerView.frame.size = CGSize(width: self.itunesTableView.frame.width, height: newCell.frame.height - 5)
-//                    newCell.imageCover.center = CGPoint(x: newCell.imageCover.frame.width/2 + 10, y: newCell.containerView.frame.midY)
                     newCell.titleLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.minY + 5)
+                    newCell.titleLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
+                    newCell.descriptionLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
                     newCell.descriptionLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.maxY - newCell.descriptionLabel.frame.height - 5)
                 }
             } else {
-                UIView.animate(withDuration: 0.5) {
+                UIView.animate(withDuration: 1) {
                     newCell.imageCover.frame.size = CGSize(width: 85, height: 85)
                     newCell.containerView.frame.size = CGSize(width: self.itunesTableView.frame.width - 20, height: newCell.frame.height - 5)
                     newCell.titleLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.minY + 5)
+                    newCell.titleLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
+                    newCell.descriptionLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
                     newCell.descriptionLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.maxY - newCell.descriptionLabel.frame.height - 5)
                 }
             }

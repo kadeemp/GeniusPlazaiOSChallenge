@@ -22,7 +22,7 @@
 /* Begin PBXFileReference section */
 		8A5E8CE4546E6CB30811052D /* Pods_GeniusPlazaCodeChallegnge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeniusPlazaCodeChallegnge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8127342163B936E02765AEA /* Pods-GeniusPlazaCodeChallegnge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeniusPlazaCodeChallegnge.debug.xcconfig"; path = "Target Support Files/Pods-GeniusPlazaCodeChallegnge/Pods-GeniusPlazaCodeChallegnge.debug.xcconfig"; sourceTree = "<group>"; };
-		F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallegnge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeniusPlazaCodeChallegnge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallengge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeniusPlazaCodeChallengge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CBC9E7225FFDD900C4053B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4CBC9E9225FFDD900C4053B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4CBC9EC225FFDD900C4053B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		F4CBC9E5225FFDD900C4053B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallegnge.app */,
+				F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallengge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,9 +127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F4CBC9E3225FFDD900C4053B /* GeniusPlazaCodeChallegnge */ = {
+		F4CBC9E3225FFDD900C4053B /* GeniusPlazaCodeChallengge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4CBC9F6225FFDDA00C4053B /* Build configuration list for PBXNativeTarget "GeniusPlazaCodeChallegnge" */;
+			buildConfigurationList = F4CBC9F6225FFDDA00C4053B /* Build configuration list for PBXNativeTarget "GeniusPlazaCodeChallengge" */;
 			buildPhases = (
 				9C9E450FF2A8034C3B18BC8D /* [CP] Check Pods Manifest.lock */,
 				F4CBC9E0225FFDD900C4053B /* Sources */,
@@ -141,9 +141,9 @@
 			);
 			dependencies = (
 			);
-			name = GeniusPlazaCodeChallegnge;
+			name = GeniusPlazaCodeChallengge;
 			productName = GeniusPlazaCodeChallegnge;
-			productReference = F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallegnge.app */;
+			productReference = F4CBC9E4225FFDD900C4053B /* GeniusPlazaCodeChallengge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +161,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F4CBC9DF225FFDD900C4053B /* Build configuration list for PBXProject "GeniusPlazaCodeChallegnge" */;
+			buildConfigurationList = F4CBC9DF225FFDD900C4053B /* Build configuration list for PBXProject "GeniusPlazaCodeChallengge" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -174,7 +174,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4CBC9E3225FFDD900C4053B /* GeniusPlazaCodeChallegnge */,
+				F4CBC9E3225FFDD900C4053B /* GeniusPlazaCodeChallengge */,
 			);
 		};
 /* End PBXProject section */
@@ -436,7 +436,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F4CBC9DF225FFDD900C4053B /* Build configuration list for PBXProject "GeniusPlazaCodeChallegnge" */ = {
+		F4CBC9DF225FFDD900C4053B /* Build configuration list for PBXProject "GeniusPlazaCodeChallengge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4CBC9F4225FFDDA00C4053B /* Debug */,
@@ -445,7 +445,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4CBC9F6225FFDDA00C4053B /* Build configuration list for PBXNativeTarget "GeniusPlazaCodeChallegnge" */ = {
+		F4CBC9F6225FFDDA00C4053B /* Build configuration list for PBXNativeTarget "GeniusPlazaCodeChallengge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4CBC9F7225FFDDA00C4053B /* Debug */,
