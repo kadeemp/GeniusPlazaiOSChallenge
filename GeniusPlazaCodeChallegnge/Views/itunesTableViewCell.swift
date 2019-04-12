@@ -17,20 +17,20 @@ class itunesTableViewCell: UITableViewCell {
 
     lazy var imageCover:UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: self.containerView.frame.midY, width: 70, height: 70))
-        imageView.center = CGPoint(x: imageView.frame.height/2 + 10, y: self.containerView.frame.midY - 10)
+        imageView.center = CGPoint(x: imageView.frame.width/2 + 10, y: self.containerView.frame.midY + 30)
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
         return imageView
     }()
 
     lazy var titleLabel:UILabel = {
-        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.minY + 5, width: 250, height: 20))
-        label.backgroundColor = UIColor.blue
+        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.minY + 5, width: 200, height: 20))
+
         return label
     }()
     lazy var descriptionLabel:UILabel = {
-        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.maxY - self.titleLabel.frame.height - 5, width: 250, height: 20))
-        label.backgroundColor = UIColor.red
+        let label = UILabel(frame: CGRect(x: self.imageCover.frame.maxX + 10, y: self.imageCover.frame.maxY - self.titleLabel.frame.height - 5, width: 200, height: 20))
+    
         return label
     }()
 
