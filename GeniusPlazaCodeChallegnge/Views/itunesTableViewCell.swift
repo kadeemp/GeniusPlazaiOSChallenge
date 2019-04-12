@@ -18,8 +18,7 @@ class itunesTableViewCell: UITableViewCell {
     lazy var imageCover:UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: self.containerView.frame.midY, width: 85, height: 85))
         imageView.center = CGPoint(x: imageView.frame.width/2 + 10, y: self.containerView.frame.midY + 30)
-//        imageView.layer.borderColor = UIColor.black.cgColor
-//        imageView.layer.borderWidth = 1
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         return imageView
     }()
 
@@ -36,7 +35,6 @@ class itunesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,7 +43,6 @@ class itunesTableViewCell: UITableViewCell {
         containerView.addSubview(imageCover)
         containerView.addSubview(titleLabel)
         containerView.addSubview(descriptionLabel)
-        // Configure the view for the selected state
     }
 
 }

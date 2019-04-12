@@ -32,5 +32,4 @@ enum MediaEnum {
     case audioBooks
     case books
     case tvShows
-
 }

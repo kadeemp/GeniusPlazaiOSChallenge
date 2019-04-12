@@ -18,12 +18,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         setupTableView()
         rightBarButtonSetup()
-
+        print(self.counter, #function)
         NetworkingService.requestData(counter: counter) { (data) in
             self.itunesInfo = data
             self.itunesTableView.reloadData()
-            self.counter += 1
             self.setTitle()
+            self.counter += 1
+
         }
     }
 
@@ -86,7 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     @objc func incrementMediaType() {
-        if counter == 6 {
+        if counter == 7 {
             counter = 0
         }
 
@@ -100,14 +101,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 NetworkingService.requestData(counter: self.counter) { (data) in
                     self.itunesInfo = data
                     self.itunesTableView.reloadData()
-                    self.counter += 1
+
                     self.setTitle()
+                    self.counter += 1
                 }
             })
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2, animations: {
                 self.itunesTableView.layer.opacity = 1
                 self.itunesTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
             })
+
         })
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,10 +155,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-
-
-
-
-
 }
 
