@@ -14,4 +14,4 @@ Result:
 
 ![screenshot2](/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot2.png)
 
-![screenshot3](/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot3.png)
+![screenshot3](/screenshot3.png)
