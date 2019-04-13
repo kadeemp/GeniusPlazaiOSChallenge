@@ -9,6 +9,9 @@ one media type (bonus points if more than one media type).
 4. Layout should be dynamic and proportional when viewed in portrait or landscape.
 
 Result:
-![ screenshot 1 ] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screeenshot1.png)
-![ screenshot 2 ] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot2.png)
-![ screenshot 3 ] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot3.png)
+
+![screensho1] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screeenshot1.png)
+
+![screenshot2] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot2.png)
+
+![screenshot3] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot3.png)

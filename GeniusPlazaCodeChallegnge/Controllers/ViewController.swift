@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         if UIDevice.current.orientation.isLandscape {
             UIView.animate(withDuration: 1) {
-                self.mainTableView.frame = CGRect(x: 0, y: 0, width: size.width , height: size.height)
+                self.mainTableView.frame.size = CGSize(width: size.width , height: size.height)
                 self.mainTableView.reloadData()
                 self.view.setNeedsLayout()
             }
@@ -154,4 +154,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 }
-
