@@ -12,11 +12,11 @@ import SwiftyJSON
 
 class NetworkingService {
 
-    static func requestData(counter:Int,completion: @escaping ([itunesData]) -> ()) {
+    static func requestData(index:Int,completion: @escaping ([appleData]) -> ()) {
         let links = MediaType.allLinks()
-        var result:[itunesData] = []
+        var result:[appleData] = []
 
-        let url = URL(string: links[counter])
+        let url = URL(string: links[index])
         Alamofire.request(url!).responseJSON { (response) in
             switch response.result {
             case .success :
@@ -29,7 +29,7 @@ class NetworkingService {
                         let artist = packet["artistName"].string!
                         let artworkUrl = packet["artworkUrl100"].string!
 
-                        let unit = itunesData(title: title, mediaType: mediaType, image: artworkUrl, artist: artist)
+                        let unit = appleData(title: title, mediaType: mediaType, image: artworkUrl, artist: artist)
 
                         result.append(unit)
                     }

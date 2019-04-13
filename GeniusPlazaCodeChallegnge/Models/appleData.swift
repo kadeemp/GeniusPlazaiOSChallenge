@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct itunesData {
+struct appleData {
     let title:String
     let mediaType:String
     let image:String

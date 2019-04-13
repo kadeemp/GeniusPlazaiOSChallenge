@@ -10,21 +10,19 @@ import UIKit
 import AlamofireImage
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var itunesTableView:UITableView!
-    var itunesInfo:[itunesData] = []
-    var counter = 0
+    var mainTableView:UITableView!
+    var tableviewData:[appleData] = []
+    var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         rightBarButtonSetup()
-        print(self.counter, #function)
-        NetworkingService.requestData(counter: counter) { (data) in
-            self.itunesInfo = data
-            self.itunesTableView.reloadData()
+        NetworkingService.requestData(index: index) { (data) in
+            self.tableviewData = data
+            self.mainTableView.reloadData()
             self.setTitle()
-            self.counter += 1
-
+            self.index += 1
         }
     }
 
@@ -32,14 +30,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         if UIDevice.current.orientation.isLandscape {
             UIView.animate(withDuration: 1) {
-                self.itunesTableView.frame = CGRect(x: 0, y: 0, width: size.width , height: size.height)
-                self.itunesTableView.reloadData()
+                self.mainTableView.frame = CGRect(x: 0, y: 0, width: size.width , height: size.height)
+                self.mainTableView.reloadData()
                 self.view.setNeedsLayout()
             }
         } else {
             UIView.animate(withDuration: 1) {
-                self.itunesTableView.frame = CGRect(x: 20, y: 0, width: size.width - 40, height: size.height)
-                self.itunesTableView.reloadData()
+                self.mainTableView.frame = CGRect(x: 20, y: 0, width: size.width - 40, height: size.height)
+                self.mainTableView.reloadData()
                 self.view.setNeedsLayout()
             }
         }
@@ -54,19 +52,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func setupTableView() {
-        itunesTableView = UITableView()
-        itunesTableView.autoresizesSubviews = true
-        itunesTableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height)
-        itunesTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
-        itunesTableView.delegate = self
-        itunesTableView.dataSource = self
-        itunesTableView.register(itunesTableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.view.addSubview(itunesTableView)
+        mainTableView = UITableView()
+        mainTableView.autoresizesSubviews = true
+        mainTableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height)
+        mainTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        mainTableView.register(itunesTableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.view.addSubview(mainTableView)
     }
 
     func setTitle() {
 
-        switch self.counter {
+        switch self.index {
         case 0:
             self.title = "Apple Music"
         case 1:
@@ -87,38 +85,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     @objc func incrementMediaType() {
-        if counter == 7 {
-            counter = 0
+        if index == 7 {
+            index = 0
         }
 
         UIView.animateKeyframes(withDuration: 2, delay: 0, options: [.calculationModeCubic], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1, animations: {
-                self.itunesTableView.frame.origin = CGPoint(x: -self.itunesTableView.frame.width - 50, y: 0)
-                self.itunesTableView.layer.opacity = 0
+                self.mainTableView.frame.origin = CGPoint(x: -self.mainTableView.frame.width - 50, y: 0)
+                self.mainTableView.layer.opacity = 0
             })
             UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.1, animations: {
-                self.itunesTableView.frame.origin = CGPoint(x: self.itunesTableView.frame.width + 50, y: 0)
-                NetworkingService.requestData(counter: self.counter) { (data) in
-                    self.itunesInfo = data
-                    self.itunesTableView.reloadData()
-
+                self.mainTableView.frame.origin = CGPoint(x: self.mainTableView.frame.width + 50, y: 0)
+                NetworkingService.requestData(index: self.index) { (data) in
+                    self.tableviewData = data
+                    self.mainTableView.reloadData()
                     self.setTitle()
-                    self.counter += 1
+                    self.index += 1
                 }
             })
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2, animations: {
-                self.itunesTableView.layer.opacity = 1
-                self.itunesTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
+                self.mainTableView.layer.opacity = 1
+                self.mainTableView.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.midY)
             })
+            self.mainTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
 
         })
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itunesInfo.count
+        return tableviewData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = itunesTableView.dequeueReusableCell(withIdentifier: "Cell") as! itunesTableViewCell
-        let data = itunesInfo[indexPath.row]
+        let cell = mainTableView.dequeueReusableCell(withIdentifier: "Cell") as! itunesTableViewCell
+        let data = tableviewData[indexPath.row]
         cell.titleLabel.text = data.title
         cell.descriptionLabel.text = data.artist
         DispatchQueue.main.async {
@@ -137,7 +135,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if UIApplication.shared.statusBarOrientation.isLandscape {
                 UIView.animate(withDuration:1) {
                     newCell.imageCover.frame.size = CGSize(width: 100, height: 100)
-                    newCell.containerView.frame.size = CGSize(width: self.itunesTableView.frame.width, height: newCell.frame.height - 5)
+                    newCell.containerView.frame.size = CGSize(width: self.mainTableView.frame.width, height: newCell.frame.height - 5)
                     newCell.titleLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.minY + 5)
                     newCell.titleLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
                     newCell.descriptionLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
@@ -146,7 +144,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else {
                 UIView.animate(withDuration: 1) {
                     newCell.imageCover.frame.size = CGSize(width: 85, height: 85)
-                    newCell.containerView.frame.size = CGSize(width: self.itunesTableView.frame.width - 20, height: newCell.frame.height - 5)
+                    newCell.containerView.frame.size = CGSize(width: self.mainTableView.frame.width - 20, height: newCell.frame.height - 5)
                     newCell.titleLabel.frame.origin = CGPoint(x: newCell.imageCover.frame.maxX + 10, y: newCell.imageCover.frame.minY + 5)
                     newCell.titleLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
                     newCell.descriptionLabel.frame.size = CGSize(width: newCell.containerView.frame.width - newCell.imageCover.frame.width - 20, height: 20)
