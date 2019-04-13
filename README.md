@@ -10,8 +10,8 @@ one media type (bonus points if more than one media type).
 
 Result:
 
-![screensho1] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screeenshot1.png)
+![screensho1](/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screeenshot1.png)
 
-![screenshot2] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot2.png)
+![screenshot2](/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot2.png)
 
-![screenshot3] (/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot3.png)
+![screenshot3](/Users/home/Desktop/Directory/Swift/GeniusPlazaCodeChallegnge/GeniusPlazaCodeChallenge/screenshot3.png)
