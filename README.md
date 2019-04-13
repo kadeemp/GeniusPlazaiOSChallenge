@@ -10,7 +10,7 @@ one media type (bonus points if more than one media type).
 
 Result:
 
-![screenshot1](/screeenshot1.png)
+![screenshot1](/screenshot1.png)
 
 ![screenshot2](/screenshot2.png)
 
